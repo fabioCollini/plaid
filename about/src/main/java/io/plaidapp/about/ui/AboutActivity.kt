@@ -23,6 +23,7 @@ import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.lifecycle.ViewModelProviders
+import com.nytimes.inversion.InversionProvider
 import io.plaidapp.about.R
 import io.plaidapp.about.dagger.inject
 import io.plaidapp.about.databinding.ActivityAboutBinding
@@ -30,6 +31,8 @@ import io.plaidapp.about.ui.adapter.AboutPagerAdapter
 import io.plaidapp.about.ui.model.AboutViewModel
 import io.plaidapp.about.ui.model.AboutViewModelFactory
 import io.plaidapp.core.ui.widget.ElasticDragDismissFrameLayout
+import io.plaidapp.core.util.AddressableActivity
+import io.plaidapp.core.util.AddressableActivityImpl
 import io.plaidapp.core.util.customtabs.CustomTabActivityHelper
 import io.plaidapp.core.util.delegates.contentView
 import io.plaidapp.core.util.event.EventObserver
@@ -106,3 +109,6 @@ class AboutActivity : AppCompatActivity() {
         )
     }
 }
+
+@InversionProvider(AddressableActivity.ABOUT)
+fun provideAddressableActivity() : AddressableActivity = AddressableActivityImpl(AboutActivity::class)

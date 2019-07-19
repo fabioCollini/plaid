@@ -49,7 +49,7 @@ dependencies {
     implementation "com.github.bumptech.glide:recyclerview-integration:${versions.glide}"
     implementation "org.jetbrains.kotlin:kotlin-reflect:${versions.kotlin}"
     kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
-
+    kapt 'com.github.fabioCollini.inversion:inversionCodGen:3869d826b0'
 }
 
 kapt {

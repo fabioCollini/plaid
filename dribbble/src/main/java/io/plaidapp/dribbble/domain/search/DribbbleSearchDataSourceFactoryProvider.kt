@@ -17,23 +17,13 @@
 package io.plaidapp.dribbble.domain.search
 
 import android.content.Context
+import com.nytimes.inversion.InversionProvider
 import io.plaidapp.core.interfaces.SearchDataSourceFactory
-import io.plaidapp.core.interfaces.SearchDataSourceFactoryProvider
 import io.plaidapp.dribbble.dagger.DaggerDribbbleSearchComponent
 import io.plaidapp.ui.PlaidApplication.Companion.coreComponent
 
-/**
- * Provider for Dribbble implementations of [SearchDataSourceFactory]
- */
-class DribbbleSearchDataSourceFactoryProvider : SearchDataSourceFactoryProvider {
-
-    /**
-     * To construct the concrete implementation of [SearchDataSourceFactory], we need to build the
-     * dependency graph
-     */
-    override fun getFactory(context: Context): SearchDataSourceFactory {
-        return DaggerDribbbleSearchComponent.builder()
-            .coreComponent(coreComponent(context))
-            .build().factory()
-    }
-}
+@InversionProvider("dribble")
+fun provideDribbleImpl(context: Context): SearchDataSourceFactory =
+        DaggerDribbbleSearchComponent.builder()
+                .coreComponent(coreComponent(context))
+                .build().factory()

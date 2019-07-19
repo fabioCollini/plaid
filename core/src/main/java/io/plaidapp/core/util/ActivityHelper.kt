@@ -18,14 +18,19 @@
 
 package io.plaidapp.core.util
 
+import android.app.Activity
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.browser.customtabs.CustomTabsSession
 import androidx.core.content.ContextCompat
+import com.nytimes.inversion.Inversion
+import com.nytimes.inversion.InversionDef
+import com.nytimes.inversion.mapOf
 import io.plaidapp.core.R
 import io.plaidapp.core.designernews.data.votes.UpvoteStoryService
+import kotlin.reflect.KClass
 
 /**
  * Helpers to start activities in a modularized world.
@@ -50,6 +55,21 @@ interface AddressableActivity {
      * The activity class name.
      */
     val className: String
+
+    companion object {
+        @get:InversionDef
+        internal val activities by Inversion.mapOf(AddressableActivity::class)
+
+        const val ABOUT = "About"
+        const val LOGIN = "Login"
+        const val STORY = "Story"
+        const val SHOT = "Shot"
+        const val SEARCH = "Search"
+    }
+}
+
+class AddressableActivityImpl(activityClass: KClass<out Activity>) : AddressableActivity {
+    override val className: String = activityClass.java.canonicalName!!
 }
 
 /**
@@ -59,12 +79,12 @@ interface AddressableActivity {
  */
 object Activities {
 
+    private val allActivities = AddressableActivity.activities()
+
     /**
      * AboutActivity
      */
-    object About : AddressableActivity {
-        override val className = "$PACKAGE_NAME.about.ui.AboutActivity"
-    }
+    val About = allActivities.getValue(AddressableActivity.ABOUT)
 
     /**
      * Base object for DesignerNews activities.
@@ -73,24 +93,22 @@ object Activities {
         /**
          * DesignerNews LoginActivity
          */
-        object Login : AddressableActivity {
-            override val className = "$PACKAGE_NAME.designernews.ui.login.LoginActivity"
-        }
+        val Login = allActivities.getValue(AddressableActivity.LOGIN)
 
         /**
          * DesignerNewsStory Activity
          */
-        object Story : AddressableActivity {
-            override val className = "$PACKAGE_NAME.designernews.ui.story.StoryActivity"
+        object Story {
+            val Activity = allActivities.getValue(AddressableActivity.STORY)
             const val EXTRA_STORY_ID = "story_id"
 
             /**
              * Create the intent for this Activity's custom tab.
              */
             fun customTabIntent(
-                context: Context,
-                story: io.plaidapp.core.designernews.data.stories.model.Story,
-                session: CustomTabsSession?
+                    context: Context,
+                    story: io.plaidapp.core.designernews.data.stories.model.Story,
+                    session: CustomTabsSession?
             ): CustomTabsIntent.Builder {
                 val upvoteStory = Intent(context, UpvoteStoryService::class.java)
                 upvoteStory.action = UpvoteStoryService.ACTION_UPVOTE
@@ -118,8 +136,8 @@ object Activities {
         /**
          * ShotActivity
          */
-        object Shot : AddressableActivity {
-            override val className = "$PACKAGE_NAME.dribbble.ui.shot.ShotActivity"
+        object Shot {
+            val activity = allActivities.getValue(AddressableActivity.SHOT)
 
             const val EXTRA_SHOT_ID = "EXTRA_SHOT_ID"
             const val RESULT_EXTRA_SHOT_ID = "RESULT_EXTRA_SHOT_ID"
@@ -129,8 +147,8 @@ object Activities {
     /**
      * SearchActivity
      */
-    object Search : AddressableActivity {
-        override val className = "$PACKAGE_NAME.search.ui.SearchActivity"
+    object Search {
+        val activity = allActivities.getValue(AddressableActivity.SEARCH)
 
         const val EXTRA_QUERY = "EXTRA_QUERY"
         const val EXTRA_SAVE_DRIBBBLE = "EXTRA_SAVE_DRIBBBLE"

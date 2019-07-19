@@ -35,11 +35,10 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.nytimes.inversion.InversionProvider
 import io.plaidapp.core.ui.widget.ElasticDragDismissFrameLayout
-import io.plaidapp.core.util.Activities
+import io.plaidapp.core.util.*
 import io.plaidapp.core.util.AnimUtils.getFastOutSlowInInterpolator
-import io.plaidapp.core.util.ColorUtils
-import io.plaidapp.core.util.ViewUtils
 import io.plaidapp.core.util.customtabs.CustomTabActivityHelper
 import io.plaidapp.core.util.delegates.contentView
 import io.plaidapp.core.util.event.EventObserver
@@ -249,3 +248,6 @@ class ShotActivity : AppCompatActivity() {
         private const val SCRIM_ADJUSTMENT = 0.075f
     }
 }
+
+@InversionProvider(AddressableActivity.SHOT)
+fun provideAddressableActivity() : AddressableActivity = AddressableActivityImpl(ShotActivity::class)

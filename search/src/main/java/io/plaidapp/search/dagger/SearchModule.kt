@@ -28,11 +28,10 @@ import io.plaidapp.core.dagger.qualifier.IsPocketInstalled
 import io.plaidapp.core.dagger.scope.FeatureScope
 import io.plaidapp.core.data.pocket.PocketUtils
 import io.plaidapp.core.interfaces.SearchDataSourceFactory
-import io.plaidapp.core.interfaces.SearchDataSourceFactoryProvider
+import io.plaidapp.core.interfaces.searchDataSourceFactories
 import io.plaidapp.search.ui.SearchActivity
 import io.plaidapp.search.ui.SearchViewModel
 import io.plaidapp.search.ui.SearchViewModelFactory
-import kotlin.reflect.full.createInstance
 
 @Module
 abstract class SearchModule {
@@ -62,32 +61,7 @@ abstract class SearchModule {
         @Provides
         @FeatureScope
         fun factories(activity: Activity): Set<SearchDataSourceFactory> {
-            val factories = mutableSetOf<SearchDataSourceFactory>()
-
-            searchDataSourceFactory(
-                activity,
-                "io.plaidapp.designernews.domain.search.DesignerNewsSearchDataSourceFactoryProvider"
-            )?.apply { factories.add(this) }
-
-            searchDataSourceFactory(
-                activity,
-                "io.plaidapp.dribbble.domain.search.DribbbleSearchDataSourceFactoryProvider"
-            )?.apply { factories.add(this) }
-
-            return factories
-        }
-
-        private fun searchDataSourceFactory(
-            context: Context,
-            className: String
-        ): SearchDataSourceFactory? {
-            return try {
-                val provider =
-                    Class.forName(className).kotlin.createInstance() as SearchDataSourceFactoryProvider
-                provider.getFactory(context)
-            } catch (e: ClassNotFoundException) {
-                null
-            }
+            return activity.searchDataSourceFactories().values.toSet()
         }
 
         @JvmStatic

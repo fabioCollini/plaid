@@ -171,7 +171,7 @@ class FeedAdapter(
     }
 
     private fun openDesignerNewsStory(data: StoryViewHolder.TransitionData) {
-        val intent = intentTo(Activities.DesignerNews.Story)
+        val intent = intentTo(Activities.DesignerNews.Story.Activity)
         intent.putExtra(Activities.DesignerNews.Story.EXTRA_STORY_ID, data.story.id)
         ReflowText.addExtras(intent, ReflowText.ReflowableTextView(data.title))
 
@@ -209,7 +209,7 @@ class FeedAdapter(
             initialGifBadgeColor,
             isDarkTheme
         ) { view, position ->
-            val intent = intentTo(Activities.Dribbble.Shot)
+            val intent = intentTo(Activities.Dribbble.Shot.activity)
             intent.putExtra(
                 Activities.Dribbble.Shot.EXTRA_SHOT_ID,
                 getItem(position)!!.id

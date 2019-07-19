@@ -29,8 +29,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
+import com.nytimes.inversion.InversionProvider
 import io.plaidapp.core.ui.transitions.FabTransform
 import io.plaidapp.core.ui.transitions.MorphTransform
+import io.plaidapp.core.util.AddressableActivity
+import io.plaidapp.core.util.AddressableActivityImpl
 import io.plaidapp.core.util.ColorUtils
 import io.plaidapp.core.util.delegates.contentView
 import io.plaidapp.core.util.doAfterTextChanged
@@ -151,3 +154,6 @@ class LoginActivity : AppCompatActivity() {
         TransitionManager.beginDelayedTransition(binding.container)
     }
 }
+
+@InversionProvider(AddressableActivity.LOGIN)
+fun provideAddressableActivity() : AddressableActivity = AddressableActivityImpl(LoginActivity::class)

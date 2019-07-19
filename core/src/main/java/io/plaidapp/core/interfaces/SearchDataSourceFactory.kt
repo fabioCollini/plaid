@@ -16,6 +16,11 @@
 
 package io.plaidapp.core.interfaces
 
+import android.content.Context
+import com.nytimes.inversion.Inversion
+import com.nytimes.inversion.InversionDef
+import com.nytimes.inversion.mapOf
+
 /**
  * Factory for data sources that can be searched, based on a query.
  */
@@ -23,3 +28,6 @@ interface SearchDataSourceFactory {
 
     fun create(query: String): PlaidDataSource
 }
+
+@get:InversionDef
+val Context.searchDataSourceFactories by Inversion.mapOf(SearchDataSourceFactory::class)

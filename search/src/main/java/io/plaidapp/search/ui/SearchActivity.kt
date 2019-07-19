@@ -54,17 +54,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.integration.recyclerview.RecyclerViewPreloader
 import com.bumptech.glide.util.ViewPreloadSizeProvider
+import com.nytimes.inversion.InversionProvider
 import io.plaidapp.core.dagger.qualifier.IsPocketInstalled
 import io.plaidapp.core.dribbble.data.api.model.Shot
 import io.plaidapp.core.feed.FeedAdapter
 import io.plaidapp.core.ui.expandPopularItems
 import io.plaidapp.core.ui.recyclerview.InfiniteScrollListener
 import io.plaidapp.core.ui.recyclerview.SlideInItemAnimator
-import io.plaidapp.core.util.Activities
-import io.plaidapp.core.util.ColorUtils
-import io.plaidapp.core.util.ImeUtils
-import io.plaidapp.core.util.ShortcutHelper
-import io.plaidapp.core.util.TransitionUtils
+import io.plaidapp.core.util.*
 import io.plaidapp.search.R
 import io.plaidapp.search.dagger.Injector
 import io.plaidapp.search.ui.transitions.CircularReveal
@@ -419,3 +416,6 @@ class SearchActivity : AppCompatActivity() {
         })
     }
 }
+
+@InversionProvider(AddressableActivity.SEARCH)
+fun provideAddressableActivity() : AddressableActivity = AddressableActivityImpl(SearchActivity::class)
