@@ -25,9 +25,9 @@ import android.content.Intent
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.browser.customtabs.CustomTabsSession
 import androidx.core.content.ContextCompat
-import com.nytimes.inversion.Inversion
-import com.nytimes.inversion.InversionDef
-import com.nytimes.inversion.mapOf
+import inversion.Inversion
+import inversion.InversionDef
+import inversion.mapOf
 import io.plaidapp.core.R
 import io.plaidapp.core.designernews.data.votes.UpvoteStoryService
 import kotlin.reflect.KClass

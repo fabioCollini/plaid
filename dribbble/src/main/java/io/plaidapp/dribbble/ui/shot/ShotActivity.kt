@@ -35,7 +35,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.nytimes.inversion.InversionProvider
+import inversion.InversionProvider
 import io.plaidapp.core.ui.widget.ElasticDragDismissFrameLayout
 import io.plaidapp.core.util.*
 import io.plaidapp.core.util.AnimUtils.getFastOutSlowInInterpolator

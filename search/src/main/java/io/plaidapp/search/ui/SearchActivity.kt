@@ -54,7 +54,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.integration.recyclerview.RecyclerViewPreloader
 import com.bumptech.glide.util.ViewPreloadSizeProvider
-import com.nytimes.inversion.InversionProvider
+import inversion.InversionProvider
 import io.plaidapp.core.dagger.qualifier.IsPocketInstalled
 import io.plaidapp.core.dribbble.data.api.model.Shot
 import io.plaidapp.core.feed.FeedAdapter

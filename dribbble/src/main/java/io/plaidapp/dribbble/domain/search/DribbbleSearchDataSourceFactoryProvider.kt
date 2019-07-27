@@ -17,7 +17,7 @@
 package io.plaidapp.dribbble.domain.search
 
 import android.content.Context
-import com.nytimes.inversion.InversionProvider
+import inversion.InversionProvider
 import io.plaidapp.core.interfaces.SearchDataSourceFactory
 import io.plaidapp.dribbble.dagger.DaggerDribbbleSearchComponent
 import io.plaidapp.ui.PlaidApplication.Companion.coreComponent

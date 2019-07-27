@@ -23,5 +23,5 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}"
 
-    implementation 'com.github.fabioCollini.inversion:inversionLib:3869d826b0'
+    implementation 'com.github.fabioCollini.inversion:inversionLib:0.2'
 }

@@ -29,7 +29,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
-import com.nytimes.inversion.InversionProvider
+import inversion.InversionProvider
 import io.plaidapp.core.ui.transitions.FabTransform
 import io.plaidapp.core.ui.transitions.MorphTransform
 import io.plaidapp.core.util.AddressableActivity

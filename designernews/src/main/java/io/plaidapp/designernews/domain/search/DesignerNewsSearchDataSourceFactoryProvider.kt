@@ -17,7 +17,7 @@
 package io.plaidapp.designernews.domain.search
 
 import android.content.Context
-import com.nytimes.inversion.InversionProvider
+import inversion.InversionProvider
 import io.plaidapp.core.interfaces.SearchDataSourceFactory
 import io.plaidapp.designernews.dagger.DaggerDesignerNewsSearchComponent
 import io.plaidapp.designernews.dagger.DesignerNewsPreferencesModule
