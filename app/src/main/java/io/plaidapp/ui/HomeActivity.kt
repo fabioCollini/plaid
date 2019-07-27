@@ -462,7 +462,7 @@ class HomeActivity : AppCompatActivity() {
                     this, searchMenuView,
                     getString(R.string.transition_search_back)
                 ).toBundle()
-                startActivityForResult(intentTo(Activities.Search.activity), RC_SEARCH, options)
+                startActivityForResult(intentTo(Activities.Search), RC_SEARCH, options)
                 true
             }
             R.id.menu_designer_news_login -> {

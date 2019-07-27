@@ -98,17 +98,16 @@ object Activities {
         /**
          * DesignerNewsStory Activity
          */
-        object Story {
-            val Activity = allActivities.getValue(AddressableActivity.STORY)
+        object Story : AddressableActivity by allActivities.getValue(AddressableActivity.STORY) {
             const val EXTRA_STORY_ID = "story_id"
 
             /**
              * Create the intent for this Activity's custom tab.
              */
             fun customTabIntent(
-                    context: Context,
-                    story: io.plaidapp.core.designernews.data.stories.model.Story,
-                    session: CustomTabsSession?
+                context: Context,
+                story: io.plaidapp.core.designernews.data.stories.model.Story,
+                session: CustomTabsSession?
             ): CustomTabsIntent.Builder {
                 val upvoteStory = Intent(context, UpvoteStoryService::class.java)
                 upvoteStory.action = UpvoteStoryService.ACTION_UPVOTE
@@ -136,8 +135,7 @@ object Activities {
         /**
          * ShotActivity
          */
-        object Shot {
-            val activity = allActivities.getValue(AddressableActivity.SHOT)
+        object Shot : AddressableActivity by allActivities.getValue(AddressableActivity.SHOT) {
 
             const val EXTRA_SHOT_ID = "EXTRA_SHOT_ID"
             const val RESULT_EXTRA_SHOT_ID = "RESULT_EXTRA_SHOT_ID"
@@ -147,8 +145,7 @@ object Activities {
     /**
      * SearchActivity
      */
-    object Search {
-        val activity = allActivities.getValue(AddressableActivity.SEARCH)
+    object Search : AddressableActivity by  allActivities.getValue(AddressableActivity.SEARCH) {
 
         const val EXTRA_QUERY = "EXTRA_QUERY"
         const val EXTRA_SAVE_DRIBBBLE = "EXTRA_SAVE_DRIBBBLE"
