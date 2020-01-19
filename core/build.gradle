@@ -86,7 +86,7 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:${versions.glide}"
     kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
     kapt "androidx.annotation:annotation:${versions.androidx}"
-    kapt 'com.github.fabioCollini.inversion:inversionCodGen:0.3'
+    kapt "com.github.fabioCollini.inversion:inversionCodGen:${versions.inversion}"
 }
 
 androidExtensions {
