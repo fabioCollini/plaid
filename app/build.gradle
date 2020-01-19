@@ -87,7 +87,7 @@ dependencies {
     implementation "com.github.bumptech.glide:recyclerview-integration:${versions.glide}"
 
     kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
-    kapt 'com.github.fabioCollini.inversion:inversionCodGen:0.2'
+    kapt 'com.github.fabioCollini.inversion:inversionCodGen:0.3'
 }
 
 // Must be applied after dependencies. See https://stackoverflow.com/a/38018985
