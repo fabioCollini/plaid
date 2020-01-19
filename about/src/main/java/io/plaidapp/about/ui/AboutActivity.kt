@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Google, Inc.
+ * Copyright 2018 Google LLC.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import inversion.InversionProvider
+import io.plaidapp.R as appR
 import io.plaidapp.about.R
 import io.plaidapp.about.dagger.inject
 import io.plaidapp.about.databinding.ActivityAboutBinding
@@ -37,7 +38,6 @@ import io.plaidapp.core.util.customtabs.CustomTabActivityHelper
 import io.plaidapp.core.util.delegates.contentView
 import io.plaidapp.core.util.event.EventObserver
 import javax.inject.Inject
-import io.plaidapp.R as appR
 
 /**
  * About screen. This displays 3 pages in a ViewPager:
@@ -60,8 +60,7 @@ class AboutActivity : AppCompatActivity() {
 
         inject()
 
-        val viewModel = ViewModelProviders
-            .of(this, aboutViewModelFactory)
+        val viewModel = ViewModelProvider(this, aboutViewModelFactory)
             .get(AboutViewModel::class.java)
             .apply {
                 navigationTarget.observe(this@AboutActivity, EventObserver { url ->

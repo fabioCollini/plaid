@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Google, Inc.
+ * Copyright 2018 Google LLC.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,8 +19,8 @@ package io.plaidapp.core.dribbble.data
 import io.plaidapp.core.dribbble.data.api.model.Images
 import io.plaidapp.core.dribbble.data.api.model.Shot
 import io.plaidapp.core.dribbble.data.api.model.User
-import okhttp3.MediaType
-import okhttp3.ResponseBody
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.ResponseBody.Companion.toResponseBody
 
 /**
  * Dribbble test data
@@ -60,4 +60,4 @@ val shots = listOf(
     )
 )
 
-val errorResponseBody = ResponseBody.create(MediaType.parse(""), "Error")
+val errorResponseBody = "Error".toResponseBody("".toMediaTypeOrNull())

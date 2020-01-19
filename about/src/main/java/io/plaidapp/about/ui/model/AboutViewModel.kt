@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Google, Inc.
+ * Copyright 2018 Google LLC.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,17 +17,17 @@
 package io.plaidapp.about.ui.model
 
 import `in`.uncod.android.bypass.Markdown
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import android.content.res.ColorStateList
 import android.content.res.Resources
+import android.text.Spannable
+import android.text.SpannableStringBuilder
 import androidx.annotation.ColorInt
 import androidx.annotation.StringRes
 import androidx.annotation.VisibleForTesting
-import android.text.Spannable
-import android.text.SpannableStringBuilder
 import androidx.core.text.toSpannable
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import io.plaidapp.about.R
 import io.plaidapp.about.domain.model.Library
 import io.plaidapp.about.ui.AboutStyler

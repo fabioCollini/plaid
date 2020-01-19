@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Google, Inc.
+ * Copyright 2019 Google LLC.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,13 +27,13 @@ import io.plaidapp.core.producthunt.data.ProductHuntSourceItem.Companion.SOURCE_
 import io.plaidapp.core.producthunt.domain.LoadPostsUseCase
 import io.plaidapp.core.ui.filter.FiltersChangedCallback
 import io.plaidapp.core.util.exhaustive
+import java.util.concurrent.atomic.AtomicInteger
+import javax.inject.Inject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.concurrent.atomic.AtomicInteger
-import javax.inject.Inject
 
 /**
  * Data class mapping the key based on which we're requesting data and the page

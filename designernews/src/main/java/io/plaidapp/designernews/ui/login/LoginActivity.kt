@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Google, Inc.
+ * Copyright 2018 Google LLC.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,8 @@ import androidx.core.net.toUri
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import inversion.InversionProvider
+import io.plaidapp.R as appR
+import io.plaidapp.core.R as coreR
 import io.plaidapp.core.ui.transitions.FabTransform
 import io.plaidapp.core.ui.transitions.MorphTransform
 import io.plaidapp.core.util.AddressableActivity
@@ -43,8 +45,6 @@ import io.plaidapp.designernews.dagger.inject
 import io.plaidapp.designernews.databinding.ActivityDesignerNewsLoginBinding
 import io.plaidapp.designernews.databinding.ToastLoggedInConfirmationBinding
 import javax.inject.Inject
-import io.plaidapp.R as appR
-import io.plaidapp.core.R as coreR
 
 class LoginActivity : AppCompatActivity() {
 

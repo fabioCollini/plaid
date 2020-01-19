@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Google, Inc.
+ * Copyright 2018 Google LLC.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 package io.plaidapp.designernews.dagger
 
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import dagger.Module
 import dagger.Provides
 import io.plaidapp.core.dagger.scope.FeatureScope
@@ -46,13 +46,13 @@ class StoryModule(private val storyId: Long, private val activity: StoryActivity
     fun provideLoginViewModel(
         factory: DesignerNewsViewModelFactory
     ): LoginViewModel =
-        ViewModelProviders.of(activity, factory).get(LoginViewModel::class.java)
+        ViewModelProvider(activity, factory).get(LoginViewModel::class.java)
 
     @Provides
     fun provideStoryViewModel(
         factory: StoryViewModelFactory
     ): StoryViewModel =
-        ViewModelProviders.of(activity, factory).get(StoryViewModel::class.java)
+        ViewModelProvider(activity, factory).get(StoryViewModel::class.java)
 
     @Provides
     fun provideStoryViewModelFactory(
